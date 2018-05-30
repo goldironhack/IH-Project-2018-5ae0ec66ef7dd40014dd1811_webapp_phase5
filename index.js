@@ -60,12 +60,6 @@ var urlS = "https://data.ny.gov/resource/hvwh-qtfg.json"
 
 
 
-function test(){
-
-
-    console.log(polygons);
-    console.log(districts);
-}
 function googleMapsInit(){
     
 
@@ -529,7 +523,7 @@ function makeTopSafety(){
     safetyFile = safetyFile + (top10safety[i].units) + "\r\n";
   }
   
-  console.log(safetyFile);
+  
 return {max: maxC, min: minC, array: top10safety};
 
 
@@ -601,7 +595,7 @@ affordFile = "Borough,District Code,ELI units\r\n";
     distance.innerHTML = top10afford[i].units;
     affordFile = affordFile + top10afford[i].units + "\r\n";
   }
-  console.log(affordFile);
+  
 return {max: maxA, min: minA, array: top10afford};
 
 
@@ -670,7 +664,7 @@ distanceFile = "Borough,District Code, mts\n";
     distanceFile = distanceFile + Math.round((top10near[i].center)*100)/100 + " mts" + "\n";
   }
   
-  console.log(distanceFile);
+  
   return {max: maxD, min: minD, array: top10near};
 
 
@@ -764,8 +758,7 @@ function gold(borocd){
     
     var type = "gold";
     var index = borocdToIndex(borocd);
-    console.log(index);
-    console.log(borocd);
+  
     
     var district = document.getElementById(type + "District");
     var borough = document.getElementById(type + "Borough");
@@ -798,8 +791,7 @@ function silver(borocd){
     
     var type = "silver";
         var index = borocdToIndex(borocd);
-    console.log(index);
-    console.log(borocd);
+
     
     var district = document.getElementById(type + "District");
     var borough = document.getElementById(type + "Borough");
@@ -830,8 +822,7 @@ function bronze(borocd){
     
         var type = "bronze";
        var index = borocdToIndex(borocd);
-    console.log(index);
-    console.log(borocd);
+
     
     var district = document.getElementById(type + "District");
     var borough = document.getElementById(type + "Borough");
@@ -1186,7 +1177,7 @@ function loadNeighborhoods(){
     
      var data = $.get(url2,function(){} ).done(
                   function(){
-                        console.log("NEIGH")
+                        
                         
                       for(var i in data.responseJSON.data){
 
