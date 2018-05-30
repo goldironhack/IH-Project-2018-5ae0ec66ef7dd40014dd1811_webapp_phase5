@@ -1,15 +1,306 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>NYU Stern School District Comparing</title>
+    
+
+<!-- Icon for the website. Extracted from https://www.iconfinder.com/icons/379383/3_student_icon#size=256. 
+Created by: Webalys !-->
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACXklEQVQ4T42TT0gUcRTHv++3O+6uutlBIahIwRSsTNlT5i6aS6Fgl05dhVT0ENGhY9cuQihkUh3q0DVCKtpd/2RghYIKZoTQamJ/Ia3ddGdm572YEd1xpejdft8338+8N7/vEPLKGG0MMatOJXKGBUfstlJIsmBUiTVUcHZy1m2h7YMMhwrNQNEAIB35UPeZWYZ8xdYVani1aesOwDbrgcLnCmj8l9nVG9c8nlZqHs84ACMRued+c8YEZpKEuaUtS32FoK4c8Gk5BINu+aMTvWTvDKbp7daTKcJggmBD3BUoAHrOMVrrc6oI1VImERlSkM4decWHL0U6rj8KoqysFB4rhdVvv3DjooHSfXkLEgbIiIcXQah0A7iqHFOb7dhfEoQ/u4b5xY9oK38DMlZ3ExgLlImFDaWQ227JB6oNgap77c+L7PqyY1KfHwLpt7sAzNjcC5gtAg4aoJY+YI1hpb+CAqugTw/2XBADG2Qkwu8BVO10dQXxCvTDXfCXVMJKr8BMJeFfH3Ym2lUk85SJhwcVodvJgwCPpwlJbkZh8T50XziPbOon7sbG8DudwlHvC7SH2HUNuElGrKEOyjNjq3PLhKv3CZqmoSUaxUlkYAS8WNjwYHRkBKZpor+DUXMIYIaQwnEnSJlY422lqGtsnvB6cSvdpDw4EDwGS2N8//EOwpajn64WRGrsVai/IDpxeSvKk6cC5ob3KYCm/4oyS1zLBtup7Zme+5nGmvy6xX0K0vM3iD22UtKvGcFrttmZNP9hPR45QUouwUILAxVQEEXyAUwJIdzxRV8uuD1/AGzW9KoliaahAAAAAElFTkSuQmCC" />
+
+
+    <!--  Bootstrap css call-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+
+
+    <!-- Local CSS link  -->
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Hello World!</h1>
-        <button id="btn">Click me</button>
+  </head>
+
+
+
+
+
+  <body>
+
+
+    <div class="container-fluid">
+
+      
+
+        
+
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#"> 
+  <!--Icon made by Freepik from www.flaticon.com -->
+ <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDkxOC4zIDkxOC4zIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA5MTguMyA5MTguMzsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik02ODcuOCwyNDQuN2MtMzMuOS0xNC40LTYzLjgwMS0yMS40LTkxLjYtMjEuNGMtMTEuNzAxLDAtMjIuMjAxLDEuMi0zMi4xLDMuMWMxNi02LjUsMzQuMjk5LTEyLjcsNTUuMjk5LTE3LjkgICAgYzIzLjIwMS01LjgsNDUuMzAxLTE2LjMsNjUuNS0zMS40YzE2LjYtMTIuMywzMi4yMDEtMjcuOCw0Ni4zMDEtNDUuOWMyNC42LTMxLjcsMzkuMS02NC4zLDQ1LjYtODAuOWMzLjYtOS4yLDIuOS0xOS4zLTEuOS0yNy43ICAgIGMtNC43OTktOC40LTEzLjEtMTQuMi0yMi43OTktMTUuOUM3MzcuNSw0LjIsNzA3LjgsMCw2NzMuNSwwYy01NC4zOTgsMC05OS4xLDEwLjMtMTMyLjg5OCwzMC42Yy0yMS40LDEyLjctMzguNCw0MC4xLTUyLjMwMSw4My44ICAgIGMtMy4xLDkuNy02LDIwLjItOC44MDEsMzEuNWMtMC4zOTgtNS43LTAuODk4LTExLjEtMS4yOTktMTYuMmMtMy40LTQwLjEtNi40LTU4LjQtOS4xLTY4LjRjLTAuODAxLTMuMS0xLjYwMi01LjUtMi40LTcuMyAgICBDNDU3LDMwLjIsNDM3LDE1LjksNDEzLjIsMTUuOWMtMTIuOSwwLTI1LjcsNC4yLTM2LjEsMTEuOGMtMTIuNCw5LjEtMTkuNSwyMi0xOS41LDM1LjNjMCwyNC44LDE0Ljg5OSwzNy43LDI0LjY5OSw0Ni4zICAgIGMzLDIuNiw1LjcsNC45LDcuODAxLDcuM2MzLjE5OSw4LjMsMTEuMTk5LDQzLjMsMjMuNjk5LDEyOGMtOS4zLTIuMi0xOC4zOTktNC45LTI3Ljg5OS03LjdjLTI0LjItNy4xLTQ5LjMtMTQuNC03OC45LTE0LjQgICAgYy0yNC44OTksMC00OS44LDUuMi03Ni4yLDE1LjljLTQ4LjMsMTkuOC04OC42LDU3LjMtMTE2LjQsMTA4LjdjLTIyLjksNDIuNC0zNi4xLDkyLjctMzYuMSwxMzguMmMwLDI5LjksNy4yLDY3LjUsMjAuOSwxMDguNyAgICBjMTMuOCw0MS41LDMzLjQsODQuNjAxLDU2LjcsMTI0LjhjMjUuOSw0NC42MDEsNTUsODMuNjAxLDg2LjYsMTE1LjgwMWMzNi4xMDEsMzYuODk5LDc0LjIsNjMuMzk5LDExMyw3OC44ICAgIGM4LjIsMy4zLDE3LjIsNC44OTksMjYuOCw0Ljg5OWMxNy4yLDAsMzMuODAxLTUuMTk5LDQ4LjUtOS44YzEwLjUtMy4zLDIxLjMwMS02LjcsMjguNC02LjdjMywwLDYuMjk5LDAuNCwxMCwxICAgIGM3LjUsMS4yLDE2LjE5OSwzLjUsMjQuNjk5LDUuN2MxNSwzLjksMzAuNSw3LjksNDQuNzAxLDcuOWM2LDAsMTEuMzk4LTAuNywxNi41LTIuMTAxYzQyLjUtMTIsODMuMjk5LTM2LjM5OSwxMjEuMTk5LTcyLjUgICAgYzMyLjY5OS0zMS4xLDYyLjUtNzAsODguNS0xMTUuNkM4MTAuNSw2NDYuMiw4NDAsNTUxLjcsODQwLDQ4NS40YzAtNTAuMi05Ljc5OS05NC40LTI5LjE5OS0xMzEuNSAgICBDNzg1LjYwMSwzMDUuNCw3NDQuMjAxLDI2OC43LDY4Ny44LDI0NC43eiBNNjcwLjEwMSw4MTRjLTEuMTAyLDEuMi0yLjMwMSwyLjMtMy40LDMuNWMtMC42LDAuNjAxLTEuMjAxLDEuMi0xLjgwMSwxLjcgICAgYy0xLjQsMS40LTIuNzk5LDIuOC00LjE5OSw0LjFjLTAuNSwwLjUtMS4xLDEtMS42LDEuNjAxYy0xLjgwMSwxLjctMy42MDIsMy4zOTktNS40LDVjLTguMzAxLDcuNi0xNywxNC43LTI1LjgwMSwyMS4yICAgIGMtMTMuMjk5LDkuOC0yNy4yOTksMTguMzk5LTQxLjc5OSwyNS4zOTljLTEuMjAxLDAuNjAxLTIuNCwxLjItMy42MDIsMS43Yy0yLjM5OCwxLjEtNC44OTgsMi4yLTcuMjk5LDMuMyAgICBjLTguNiwzLjctMTcuNCw2LjgtMjYuNCw5LjRsMCwwYy0wLjY5OSwwLjItMS41LDAuMzk5LTIuMTk5LDAuNWMtMC4zMDEsMC4xLTAuNSwwLjEtMC44MDEsMC4xYy0wLjUsMC4xMDEtMSwwLjItMS42LDAuMiAgICBjLTAuMzAxLDAtMC42LDAuMS0xLDAuMWMtMC41LDAtMSwwLjEwMS0xLjUsMC4xMDFjLTAuMzAxLDAtMC43MDEsMC0xLjEsMGMtMC41LDAtMSwwLTEuNSwwcy0wLjksMC0xLjQsMGMtMC4zMDEsMC0wLjYsMC0wLjksMCAgICBjLTAuNiwwLTEuMSwwLTEuNjk5LTAuMTAxYy0wLjIwMSwwLTAuNSwwLTAuNzAxLDBjLTAuNzk5LTAuMS0xLjYtMC4xLTIuNS0wLjE5OWMtMC4xLDAtMC4xOTksMC0wLjE5OSwwICAgIGMtMC44MDEtMC4xMDEtMS41LTAuMi0yLjMwMS0wLjMwMWMtMC4yOTksMC0wLjYtMC4xLTAuOS0wLjFjLTAuNi0wLjEtMS4xLTAuMi0xLjY5OS0wLjNjLTAuMzAxLTAuMTAxLTAuNjk5LTAuMTAxLTEtMC4yICAgIGMtMC41LTAuMS0xLjEtMC4yLTEuNjk5LTAuM2MtMC4zMDEtMC4xMDEtMC43MDEtMC4xMDEtMS0wLjJjLTAuNjAyLTAuMS0xLjEwMi0wLjItMS43MDEtMC4zYy0wLjI5OS0wLjEwMS0wLjY5OS0wLjEwMS0xLTAuMiAgICBjLTAuNi0wLjEtMS4xOTktMC4zLTEuNzk5LTAuNGMtMC4zMDEtMC4xLTAuNjAyLTAuMS0wLjktMC4xOTljLTAuODAxLTAuMi0xLjcwMS0wLjQtMi41LTAuNjAxYy0wLjEsMC0wLjIwMSwwLTAuMzAxLTAuMSAgICBjLTAuOS0wLjItMS45LTAuNC0yLjc5OS0wLjdjLTAuMzAxLTAuMS0wLjYwMi0wLjEtMC45LTAuMmMtMC42LTAuMi0xLjMwMS0wLjMtMS45LTAuNWMtMC40LTAuMS0wLjY5OS0wLjItMS4xLTAuMyAgICBjLTAuNi0wLjEtMS4yMDEtMC4zLTEuODAxLTAuNGMtMC40LTAuMS0wLjc5OS0wLjE5OS0xLjEtMC4zYy0wLjYtMC4yLTEuMTk5LTAuMy0xLjgwMS0wLjVjLTAuMzk4LTAuMS0wLjc5OS0wLjItMS4xLTAuMyAgICBjLTAuNjk5LTAuMi0xLjQtMC40LTItMC41Yy0wLjc5OS0wLjItMS42LTAuNC0yLjQtMC42Yy0wLjM5OC0wLjEwMS0wLjY5OS0wLjItMS4xLTAuMzAxYy0wLjktMC4xOTktMS45LTAuNS0yLjc5OS0wLjY5OSAgICBjLTAuMjAxLTAuMTAxLTAuNS0wLjEwMS0wLjcwMS0wLjJjLTAuNjk5LTAuMi0xLjQtMC40LTIuMS0wLjVjLTAuMzAxLTAuMTAxLTAuNjk5LTAuMi0xLTAuM2MtMC42LTAuMi0xLjE5OS0wLjMwMS0xLjgwMS0wLjUgICAgYy0wLjM5OC0wLjEwMS0wLjY5OS0wLjItMS4xLTAuMzAxYy0wLjYtMC4xLTEuMTk5LTAuMy0xLjc5OS0wLjM5OWMtMC40LTAuMTAxLTAuODAxLTAuMi0xLjEwMi0wLjMgICAgYy0wLjYtMC4xMDEtMS4xOTktMC4zMDEtMS43OTktMC40Yy0wLjQtMC4xLTAuNzAxLTAuMi0xLjEtMC4yYy0wLjcwMS0wLjEtMS4zMDEtMC4zLTItMC4zOTlDNDc5LjMsODc5LjUsNDc5LDg3OS41LDQ3OC44LDg3OS40ICAgIGMtMC45LTAuMi0xLjgwMS0wLjQtMi44MDEtMC41Yy0wLjE5OSwwLTAuMjk5LTAuMTAxLTAuNS0wLjEwMWMtMC42OTktMC4xLTEuNS0wLjMtMi4xOTktMC4zOTljLTAuMzAxLTAuMTAxLTAuNi0wLjEwMS0wLjktMC4xMDEgICAgYy0wLjYtMC4xLTEuMTk5LTAuMTk5LTEuNjk5LTAuM2MtMC4zMDEsMC0wLjcwMS0wLjEtMS0wLjFjLTAuMSwwLTAuMjAxLDAtMC4zMDEsMGMtMC41LTAuMTAxLTAuOS0wLjEwMS0xLjQtMC4yICAgIGMtMC4zOTgsMC0wLjY5OS0wLjEtMS0wLjFjLTAuNS0wLjEwMS0xLjEtMC4xMDEtMS42LTAuMmMtMC4yOTksMC0wLjY5OS0wLjEwMS0xLTAuMTAxYy0wLjYsMC0xLjEtMC4xLTEuNjk5LTAuMSAgICBjLTAuMzAxLDAtMC42LDAtMC44MDEsMGMtMC43OTksMC0xLjYtMC4xLTIuNC0wLjFsMCwwbDAsMGMtMC43OTksMC0xLjU5OSwwLTIuMzk5LDAuMWMtMC4zLDAtMC41LDAtMC44LDAuMSAgICBjLTAuNjAxLDAtMS4xMDEsMC4xMDEtMS43LDAuMTAxYy0wLjMsMC0wLjYwMSwwLjEtMC45LDAuMWMtMC42LDAuMTAxLTEuMSwwLjEwMS0xLjcsMC4yYy0wLjMsMC0wLjYsMC4xLTAuOCwwLjEgICAgYy0wLjcsMC4xMDEtMS4zOTksMC4yLTIuMSwwLjMwMWMtMC4xMDEsMC0wLjMsMC0wLjQsMC4xYy0wLjgsMC4yLTEuNywwLjMtMi42LDAuNWMtMC4zLDAuMS0wLjUsMC4xLTAuOCwwLjIgICAgYy0wLjYwMSwwLjEtMS4yLDAuMy0xLjgwMSwwLjM5OWMtMC4zLDAuMTAxLTAuNiwwLjItMSwwLjJjLTAuNiwwLjEwMS0xLjE5OSwwLjMtMS44LDAuNGMtMC4zLDAuMS0wLjYsMC4yLTAuODk5LDAuMiAgICBjLTAuNywwLjE5OS0xLjMwMSwwLjM5OS0yLDAuNWMtMC4yLDAuMS0wLjQsMC4xLTAuNywwLjE5OWMtMC45LDAuMi0xLjgsMC41LTIuNywwLjgwMWMtMC4zLDAuMS0wLjYsMC4xOTktMC44LDAuMTk5ICAgIGMtMC42MDEsMC4yLTEuMywwLjQtMS45LDAuNjAxYy0wLjM5OSwwLjEtMC43LDAuMi0xLjEsMC4zYy0wLjYwMSwwLjItMS4xMDEsMC40LTEuNywwLjVjLTAuNCwwLjEtMC44LDAuMi0xLjEsMC40ICAgIGMtMC42MDEsMC4xOTktMS4yLDAuMzk5LTEuODAxLDAuNmMtMS4xOTksMC40LTIuMzk5LDAuOC0zLjY5OSwxLjFINDIyLjJjLTAuODk5LDAuMzAxLTEuOCwwLjYwMS0yLjYsMC44MDEgICAgYy0wLjMsMC4xLTAuNSwwLjE5OS0wLjgsMC4zYy0wLjcsMC4yLTEuNCwwLjM5OS0yLDAuNmMtMC4zMDEsMC4xMDEtMC42MDEsMC4yLTEsMC4zYy0wLjcsMC4yLTEuNCwwLjQtMiwwLjYwMSAgICBjLTAuMzAxLDAuMS0wLjYwMSwwLjItMC44MDEsMC4zYy0xLDAuMy0xLjg5OSwwLjYtMi44OTksMC44YzAsMC0wLjEwMSwwLTAuMiwwYy0wLjksMC4yLTEuOCwwLjUtMi43LDAuNyAgICBjLTAuMywwLjEtMC42LDAuMi0wLjg5OSwwLjJjLTAuNywwLjItMS4zMDEsMC4zLTIsMC41Yy0wLjMwMSwwLjEtMC43LDAuMi0xLDAuMmMtMC43LDAuMTk5LTEuMzAxLDAuMy0yLDAuNSAgICBjLTAuMzAxLDAuMS0wLjYwMSwwLjEtMC45LDAuMTk5Yy0wLjksMC4yLTEuNywwLjQtMi42LDAuNWMtMC4xMDEsMC0wLjIsMC0wLjMwMSwwLjEwMWMtMC44OTksMC4yLTEuODk5LDAuMy0yLjgsMC41ICAgIGMtMC4zLDAtMC41LDAuMS0wLjgsMC4xYy0wLjcsMC4xLTEuMywwLjItMiwwLjNjLTAuMywwLTAuNywwLjEwMS0xLDAuMTAxYy0wLjYsMC4xLTEuMywwLjEtMS45LDAuMTk5ICAgIGMtMC4zLDAtMC42LDAuMTAxLTAuODk5LDAuMTAxYy0wLjgsMC4xLTEuNSwwLjEtMi4zLDAuMWMtMC4yLDAtMC40LDAtMC41LDBjLTAuOSwwLTEuOSwwLjEwMS0yLjgwMSwwYy0wLjE5OSwwLTAuMzk5LDAtMC42LDAgICAgYy0wLjcsMC0xLjQsMC0yLjEtMC4xYy0wLjMwMSwwLTAuNjAxLDAtMC45LTAuMTAxYy0wLjcsMC0xLjMtMC4xLTItMC4xOTljLTAuMiwwLTAuNSwwLTAuNy0wLjEwMWMtMC44OTktMC4xLTEuOC0wLjItMi43LTAuMzk5ICAgIGMtMC4xLDAtMC4zLTAuMTAxLTAuMzk5LTAuMTAxYy0wLjctMC4xLTEuNS0wLjMtMi4yLTAuNWMtMC4zLTAuMS0wLjUtMC4xLTAuOC0wLjJjLTAuNjAxLTAuMTk5LTEuMy0wLjMtMS45LTAuNSAgICBjLTAuMy0wLjEtMC41LTAuMTk5LTAuOC0wLjE5OWMtMC45LTAuMzAxLTEuNy0wLjYwMS0yLjYtMC45bDAsMGMtOC4zMDEtMy4zLTE2LjQtNy4xLTI0LjQtMTEuNGMtMi4zLTEuMTk5LTQuNi0yLjUtNi44LTMuOCAgICBjLTIuMy0xLjMtNC41LTIuNi02LjgtNGMtMy40LTIuMS02LjctNC4yLTEwLTYuMzk5Yy0yLjItMS41LTQuNC0zLTYuNjAxLTQuNjAxYy0xLjEtMC44LTIuMi0xLjYtMy4zLTIuMzk5ICAgIGMtMi4yLTEuNjAxLTQuMy0zLjItNi41LTQuOWMtMTIuODk5LTkuOS0yNS40LTIxLTM3LjMtMzIuOWMtMi0yLTQtNC01LjktNi4xYy00LjktNS4xLTkuNy0xMC40LTE0LjUtMTUuOCAgICBjLTQuNy01LjQtOS40LTEwLjktMTMuOS0xNi41Yy0zLjYtNC41LTcuMi05LjEwMS0xMC43LTEzLjdjLTEuOC0yLjMtMy41LTQuNy01LjItN2MtMS43LTIuMy0zLjQtNC43LTUuMS03LjEgICAgYy0wLjgtMS4yLTEuNy0yLjQtMi41LTMuNjAxYy01LTcuMi05LjktMTQuNS0xNC42LTIxLjg5OWMtMS42LTIuNS0zLjEtNC45LTQuNi03LjRjLTAuOC0xLjItMS41LTIuNS0yLjMtMy43ICAgIGMtMi4zLTMuNy00LjUtNy41LTYuNy0xMS4yYy0zLjYtNi4zLTcuMi0xMi42LTEwLjYtMTguODk5Yy00LjgtOC45LTExLjItMjctMTEuNi0yNy43VjQzOC41YzAtNC43LDMuOC04LjUsOC41LTguNUgxNzcgICAgYzUuNSwwLDctNC41LDctMTB2LTE5LjljMC01LjUsNC41LTEwLDEwLTEwaDQzYzUuNSwwLDEwLDQuNSwxMCwxMFY0MjBjMCw1LjUsNC41LDEwLDEwLDEwaDguM2M1LjUsMCwxMCw0LjUsMTAsMTB2MzYzLjggICAgYzAsNS41LDQuNSwxMCwxMCwxMGgxLjNjNS41LDAsMTAtNC41LDEwLTEwdi00My4xYzAtNS41LDQuNS0xMCwxMC0xMGg0My44YzUuNSwwLDEwLTQuNSwxMC0xMFY1OTEuOGMwLTIuMywxLjMtNS4zOTksMi45LTcuMSAgICBsMzEuMS0yOS4yYzMuOS0zLjg5OSw4LjMtMy44OTksMTIuMiwwbDMxLjcsMjguOWMxLjYsMS42LDIuODk5LDQuOCwyLjg5OSw3LjF2MTk3LjNjMCw5LjUsMTEuOSwxMy42MDEsMTcuOCw2LjJsMTAuNjAxLTEzLjM5OSAgICBsMTMuNi0xNy4xMDFjMi45LTMuNyw3LjYtMy43LDEwLjYsMGwzNS42LDQ0LjhjNS45LDcuNCwxNC44MDEsMy4zMDEsMTQuODAxLTYuMTk5YzAtNzgsMC0yODguMTAxLDAtMjg4LjEwMSAgICBjMC00LjcsMy43OTktOC41LDguNS04LjVoNS43OTljNS41LDAsMTMtNC41LDEzLTEwdi03MS42YzAtNS41LDQuNS0xMCwxMC0xMGg1LjRjNS41LDAsMTAtNC41LDEwLTEwdi04MC41YzAtNS41LDQuNS0xMCwxMC0xMCAgICBoMS44MDFjNS41LDAsMTAsNC41LDEwLDEwdjgwLjVjMCw1LjUsNC41LDEwLDEwLDEwaDUuNGM1LjUsMCwxMCw0LjUsMTAsMTB2NzEuNmMwLDUuNSw0LjUsMTAsMTAsMTBoNi41YzUuNSwwLDEwLDQuNSwxMCwxMCAgICBMNjcwLjEwMSw4MTRMNjcwLjEwMSw4MTR6IE03NTUuMTAxLDY5My43Yy0wLjIwMSwwLjQtMC40LDAuOC0wLjYwMiwxLjJjLTIuNjk5LDUuMS01LjUsMTAuMy04LjI5OSwxNS4zICAgIGMtMi4xLDMuOC00LjMwMSw3LjYtNi42LDExLjRDNzM3LjgsNzI0LjcsNzM1LjksNzI3LjgsNzM0LDczMC44Yy0wLjY5OSwxLjEwMS0xLjM5OCwyLjItMiwzLjMwMWMtMS4xOTksMi0yLjM5OCwzLjg5OS0zLjY5OSw1LjggICAgYy0wLjksMS4zLTEuNjk5LDIuNi0yLjYsNGMtMS4xLDEuNy0yLjIwMSwzLjMtMy4zMDEsNWMtMSwxLjM5OS0yLDIuODk5LTIuOSw0LjNjLTEsMS41LTIuMSwzLTMuMSw0LjZjLTEsMS41LTIuMSwzLTMuMTk5LDQuNCAgICBjLTEsMS40LTIsMi45LTMuMSw0LjNjLTEuMTAyLDEuNS0yLjIwMSwzLTMuNCw0LjVjLTEsMS40LTIsMi43LTMuMSw0LjEwMWMtMS4yMDEsMS41LTIuMzAxLDMtMy41LDQuNSAgICBjLTEsMS4zLTIuMTAyLDIuNi0zLjEwMiwzLjg5OWMtMS4xOTksMS41LTIuMzk4LDIuOS0zLjYsNC40Yy0wLjY5OSwwLjg5OS0xLjUsMS44LTIuMTk5LDIuN3YtMzMwYzAtNS41LDQuNS0xMCwxMC0xMEg3NDUgICAgYzUuNSwwLDEwLDQuNSwxMCwxMEw3NTUuMTAxLDY5My43TDc1NS4xMDEsNjkzLjd6IiBmaWxsPSIjZTY5ZDAwIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" width="30" height="30" class="d-inline-block align-top" alt=""> NYU Stern School of Business | Your districts rank!</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+
+    
+  </button>
+  
+    <div class="collapse navbar-collapse" id="navbarNav">
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="pills-district-tab" data-toggle="pill" href="#pills-district" role="tab" aria-controls="pills-district" aria-selected="true">Districts</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-ranking-tab" data-toggle="pill" href="#pills-ranking" role="tab" aria-controls="pills-ranking" aria-selected="false">Ranking</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-stats-tab" data-toggle="pill" href="#pills-stats" role="tab" aria-controls="pills-stats" aria-selected="false">Stats</a>
+  </li>
+</ul>
+  </div>
+  
+  
+</nav>
+
+<div class="tab-content" id="pills-tabContent">
+  
+  <div class="tab-pane fade show active" id="pills-district" role="tabpanel" aria-labelledby="pills-district-tab">
+    <div class="row"> 
+    <div class ="col-md-4"></div>
+    <div class ="col-md-4">
+        <div class="btn-group mr-2 img-responsive" role="group">   
+        <button data-toggle="button" aria-pressed="false" autocomplete="off" type="button" class="btn btn-danger" onclick="toggleCrime()"> Toggle crimes heatmap</button>
+      <button data-toggle="button" aria-pressed="false" autocomplete="off" type="button" class="btn btn-primary" onclick="toggleMuseumsAndArt()">Toggle museums and art galleries </button>
+       <button data-toggle="button" aria-pressed="false" autocomplete="off" type="button" class="btn btn-warning" onclick="toggleStations()">Toggle stations</button>
+       <button data-toggle="button" aria-pressed="false" autocomplete="off" type="button" class="btn btn-success" onclick="toggleNeighborhoods()">Toggle neighborhoods</button>
+       
+       </div>
+        
+        
     </div>
-    <script src="index.js"></script>
-</body>
+    <div class ="col-md-4"></div>
+
+     
+     </div>
+    <div class="row">
+
+    <div class = "col-md-2">   
+         <div class="alert-dark alert" role="alert">
+          <h4 class="alert-heading">District</h4>
+          
+          <p id = "BoroughB">  </p>
+        
+        <hr>
+        <p id = "districtCodeB">  </p>
+        <hr>
+        <p id = "eliB">  </p>
+          <hr>
+          <p id = "distanceB">  </p>
+          <hr>
+          <p id = "crimesB">  </p>
+          <p class="mb-0"></p>
+        </div>
+    </div>
+    <div class="col-md-8">
+          <div id="map"></div>
+        </div>
+    <div class="col-md-2">
+        
+        
+        
+        <div class="alert-dark alert" role="alert">
+          <h4 class="alert-heading">District</h4>
+          
+          <p id = "Borough">  </p>
+        
+        <hr>
+        <p id = "districtCode">  </p>
+        <hr>
+        <p id = "eli">  </p>
+          <hr>
+          <p id = "distance">  </p>
+          <hr>
+          <p id = "crimes">  </p>
+          <p class="mb-0"></p>
+        </div>
+    
+    </div>
+
+
+
+      </div>
+      
+          
+          <table  class= "table-dark table-bordered" id = "compareTable">
+              
+              
+          </table>
+          
+      
+    </div>
+      
+  <div class="tab-pane fade" id="pills-ranking" role="tabpanel" aria-labelledby="pills-ranking-tab">     
+
+   <div class= "row"> 
+      <div class ="col-md-12">   
+      <div class = "btn-group btn-group-lg" role = "group"> 
+      <div type= "button" id = "distanceTable" class = "btn btn-primary">Download</div>
+      </div>
+      
+      <div class= "row">
+          <div class = "col-md-4">
+         <div class="card  bg-warning mb-3" style="width: 18rem;">
+              <div class="card-body">
+                <h5 id = "goldDistrict" class="card-title"></h5>
+                <h6 id = "goldBorough" class="card-subtitle mb-2"></h6>
+             
+              </div>
+                <ul class="list-group list-group-flush">
+                <li id = "goldSafety" class="list-group-item">Cras justo odio</li>
+                <li id = "goldAfford" class="list-group-item">Dapibus ac facilisis in</li>
+                <li id = "goldDistance" class="list-group-item">Vestibulum at eros</li>
+                <li id = "goldMuseums" class="list-group-item">Vestibulum at eros</li>
+                <li id = "goldArt" class="list-group-item">Vestibulum at eros</li>
+                
+                </ul>
+            </div>
+              
+          </div>
+          <div class = "col-md-4">
+            <div class="card bg-secondary" style="width: 18rem;">
+              <div class="card-body">
+                <h5 id = "silverDistrict" class="card-title"></h5>
+                <h6 id = "silverBorough" class="card-subtitle mb-2"></h6>
+             
+              </div>
+                <ul class="list-group  list-group-flush">
+                <li id = "silverSafety" class="list-group-item">Cras justo odio</li>
+                <li id = "silverAfford" class="list-group-item">Dapibus ac facilisis in</li>
+                <li id = "silverDistance" class="list-group-item">Vestibulum at eros</li>
+                <li id = "silverMuseums" class="list-group-item">Vestibulum at eros</li>
+                <li id = "silverArt" class="list-group-item">Vestibulum at eros</li>
+                
+                </ul>
+            </div>
+              
+              
+              
+          </div>
+          <div class = "col-md-4">
+              
+             <div class="card bg-light" style="width: 18rem;">
+              <div class="card-body">
+                <h5 id = "bronzeDistrict" class="card-title"></h5>
+                <h6 id = "bronzeBorough" class="card-subtitle mb-2 text-muted"></h6>
+             
+              </div>
+                <ul class="list-group list-group-flush">
+                <li id = "bronzeSafety" class="list-group-item">Cras justo odio</li>
+                <li id = "bronzeAfford" class="list-group-item">Dapibus ac facilisis in</li>
+                <li id = "bronzeDistance" class="list-group-item">Vestibulum at eros</li>
+                <li id = "bronzeMuseums" class="list-group-item">Vestibulum at eros</li>
+                <li id = "bronzeArt" class="list-group-item">Vestibulum at eros</li>
+                
+                </ul>
+            </div>
+              
+              
+              
+          </div>
+          
+      </div>
+      
+      
+      <div class="row">
+        <div class="col-md-4">
+
+      
+              <table id="topTableD" class= "table-striped table-dark">
+              </table>
+              <button class="btn btn-warning" onclick="downloadDistance()">Download as .csv</button>
+
+        </div>
+             <div class="col-md-4">
+
+      
+              <table id="topTableA" class= "table-striped table-dark">
+              </table>
+              <button class="btn btn-warning" onclick="downloadAfford()">Download as .csv</button>
+
+        </div>
+             <div class="col-md-4">
+
+      
+              <table id="topTableC" class= "table-striped table-dark">
+              </table>
+              <button class="btn btn-warning" onclick="downloadSafety()">Download as .csv</button>
+              
+
+        </div>
+
+        <div class="col-md-6">
+
+          <div class = "table" id = "district">
+
+          </div>
+
+        </div> 
+
+      </div></div>
+      
+</div>
+
+      
+      
+      </div>
+    
+  <div class="tab-pane fade" id="pills-stats" role="tabpanel" aria-labelledby="pills-stats-tab">
+      
+      <div class ="row">
+      
+        <svg class="chart"></svg>
+        
+      </div>
+     
+        
+
+      
+
+
+      
+      
+
+
+
+</div>
+    
+    <!--  Bootstrap JavaScript/JQuery Call-->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    
+  </body>
+
+
+
+
+
+<!--  JQuery-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<!-- D3.js-->
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+
+<!--  Local script-->
+<script type="text/javascript" src="index.js"></script>
+
+
+
+
+
+<!--  Google Maps API-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv7td8PE-n3RugtdRODRsPwZ-_WhQ_rwI&libraries=visualization&callback=googleMapsInit&language=en&region=US"
+async defer></script>
+
 </html>
